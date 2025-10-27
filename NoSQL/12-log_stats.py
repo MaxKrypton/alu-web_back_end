@@ -11,17 +11,17 @@ if __name__ == "__main__":
 
     # Count total logs
     total_logs = nginx_collection.count_documents({})
-    print(f"{total_logs} logs")
+    print("{} logs".format(total_logs))
 
     # Count methods
     print("Methods:")
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     for method in methods:
         count = nginx_collection.count_documents({"method": method})
-        print(f"\tmethod {method}: {count}")
+        print("\tmethod {}: {}".format(method, count))
 
     # Count status checks
     status_check = nginx_collection.count_documents(
         {"method": "GET", "path": "/status"}
     )
-    print(f"{status_check} status check")
+    print("{} status check".format(status_check))
